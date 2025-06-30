@@ -1,4 +1,4 @@
-name: 03_Context Objects and Variables
+name: 02_Context Objects and Variables
 
 on:
   dispatch_workflow:
