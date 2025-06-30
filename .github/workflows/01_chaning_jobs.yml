@@ -27,6 +27,8 @@ jobs:
     steps:
       - name: Output for Job 2
         run: echo "Hello from Job 2"
+      - name: Make Job 2 Failed
+        run: exit 1
     
   job-3:
     name: Job 3
@@ -41,10 +43,10 @@ jobs:
   job-4:
     name: Job 4
     runs-on: ubuntu-latest
-     # if: always() 
+     # if: always()       - one of 2 or 3 job must finished
     needs:
-      - job-2
-      - job-3
+      - job-2      # to passed
+      - job-3      # to passed
     steps:
       - name: Output for Job 4
         run: echo "Hello from Job 4"
