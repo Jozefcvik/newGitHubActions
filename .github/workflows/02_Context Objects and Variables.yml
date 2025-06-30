@@ -1,0 +1,20 @@
+name: 02_Context Objects and Variables
+
+on:
+  dispatch_workflow:
+    inputs:
+      name:
+        description: 'Person to greet'
+        default: World
+        required: true
+
+jobs:
+
+  job-1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump GitHub context
+        env: 
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CONTEXT"
+    
