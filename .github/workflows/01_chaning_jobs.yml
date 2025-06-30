@@ -1,5 +1,5 @@
 # Display name of workflow
-name: Chaining Jobs
+name: 01_Chaining Jobs
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI or API.
 on:
