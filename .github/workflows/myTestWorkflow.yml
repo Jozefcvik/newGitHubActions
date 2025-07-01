@@ -1,5 +1,10 @@
 name: myTestWorkflow
 
+env:
+  VAR01: workflow_VAR01
+  VAR02: workflow_VAR02
+  VAR03: workflow_VAR03
+
 on:
   workflow_dispatch:
     inputs:
@@ -25,13 +30,21 @@ on:
       
 jobs:
   job-01:
+    env:
+      VAR02: jobs_VAR02
+      VAR03: jobs_VAR03
     runs-on: 
       ubuntu-latest
     steps:
     - name: Write the Person to greet
+      env:
+        VAR03: step_VAR03
       run: |
         echo "Input from Workflow: ${{ github.event.inputs.name }}"
         echo 'You done it good!'
+        echo '$VAR01'
+        echo '$VAR02'
+        echo '$VAR03'
         
   job-02:
     runs-on:
