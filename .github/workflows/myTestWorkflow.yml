@@ -45,7 +45,8 @@ jobs:
       run: exit 1
 
   job-03:
-    if: ${{ github.event.inputs.color }}
+    # if: ${{ github.event.inputs.color }}
+    if: always()
     runs-on:
       ubuntu-latest
     needs:
