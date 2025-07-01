@@ -16,5 +16,5 @@ jobs:
     steps:
     - name: Write the City name
       run: |
-        echo ${{ github.event.input.name }}
+        echo 'Input from Workflow: ${{ github.event.inputs.name }}'
         echo 'You done it good!'
