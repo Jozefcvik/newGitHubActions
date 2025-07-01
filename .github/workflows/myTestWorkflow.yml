@@ -38,12 +38,12 @@ jobs:
       ubuntu-latest
     steps:
     - name: 'Write the favourite city'
-      run: echo "Your favourite city: ${{ github.event.inputs.city }}"
+      run: echo "Your favourite city ${{ github.event.inputs.city }}"
 
   job-03:
     runs-on:
       ubuntu-latest
     steps:
     - name: 'Check the favourite color'
-      run: echo "Is it GREEN your favourite color? ${{ github.event.inputs.color }}"
+      run: echo "Green is your favourite color ${{ github.event.inputs.color }}"
     
