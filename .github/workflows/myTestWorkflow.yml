@@ -41,6 +41,8 @@ jobs:
     steps:
     - name: 'Write the favourite city'
       run: echo "Your favourite city ${{ github.event.inputs.city }}"
+    - name: "Fake Job Issue"
+      run: exit 1
 
   job-03:
     if: ${{ github.event.inputs.color }}
