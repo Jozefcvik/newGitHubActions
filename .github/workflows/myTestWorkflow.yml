@@ -5,16 +5,44 @@ on:
     inputs:
       name:
         description: 'Somebody to greet'
-        default: Alabama
+        default: Jozef
         required: true
         type: string
-
+      city:
+        description: "The favourite city"
+        required: true
+        default: Regensburg
+        type: choice
+        options:
+          - Bratislava
+          - New York
+          - Miami
+      color:
+        description: "Is your favourite color GREEN?"
+        required: true
+        type: boolean
+      
 jobs:
   job-01:
     runs-on: 
       ubuntu-latest
     steps:
-    - name: Write the City name
+    - name: Write the Person to greet
       run: |
-        echo 'Input from Workflow: ${{ github.event.inputs.name }}'
+        echo "Input from Workflow: ${{ github.event.inputs.name }}"
         echo 'You done it good!'
+        
+  job-02:
+    runs-on:
+      ubuntu-latest
+    steps:
+    - name: 'Write the favourite city'
+      run: echo "Your favourite city: ${{ github.event.inputs.city }}"
+
+  job-03:
+    runs-on:
+      ubuntu-latest
+    steps:
+    - name: 'Check the favourite color'
+      run: echo "Is it GREEN your favourite color? ${{ github.event.inputs.color }}"
+    
