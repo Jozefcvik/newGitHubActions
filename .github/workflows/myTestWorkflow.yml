@@ -1,0 +1,20 @@
+name: Test CI
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Somebody to greet'
+        default: Alabama
+        required: true
+        type: string
+
+jobs:
+  job-01:
+    runs-on: 
+      ubuntu-latest
+    steps:
+    - name: Write the City name
+      run: |
+        echo ${{ github.event.input.name }}
+        echo 'You done it good!'
