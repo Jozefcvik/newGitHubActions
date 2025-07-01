@@ -11,12 +11,13 @@ on:
       city:
         description: "The favourite city"
         required: true
-        default: Regensburg
+        default: "Regensburg"
         type: choice
         options:
-          - Bratislava
-          - New York
-          - Miami
+        - Regensburg
+        - Bratislava
+        - New York
+        - Miami
       color:
         description: "Is your favourite color GREEN?"
         required: true
