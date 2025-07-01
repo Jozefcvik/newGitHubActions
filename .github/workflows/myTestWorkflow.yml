@@ -42,9 +42,9 @@ jobs:
       run: |
         echo "Input from Workflow: ${{ github.event.inputs.name }}"
         echo 'You done it good!'
-        echo '${{ VAR01 }}'
-        echo '${{ VAR02 }}'
-        echo '${{ VAR03 }}'
+        echo $VAR01
+        echo $VAR02
+        echo $VAR03
         
   job-02:
     runs-on:
