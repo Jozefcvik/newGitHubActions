@@ -8,8 +8,8 @@ on:
   workflow_dispatch:
     # Inputs the workflow accepts.
     inputs:
-      run-job-3:
-        description: "Run job 3"
+      run-job-4:
+        description: "DEPLOY TO PRODUCTION"
         required: true
         type: boolean
 
@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Output for Job 1
-        run: echo "Hello from Job 1. Run Job 3 equals ${{ github.event.inputs.run-job-3 }}"
+        run: echo "DEPLOYED!"
 
   job-2:
     name: Unit Test
@@ -28,26 +28,25 @@ jobs:
       - job-1
     steps:
       - name: Output for Job 2
-        run: echo "Hello from Job 2"
+        run: echo "TESTED!"
       # - name: Make Job 2 Failed
        # run: exit 1
     
   job-3:
     name: Staging
-   #  if: github.event.inputs.run-job-3 == 'true'
     runs-on: ubuntu-latest
     needs:
       - job-2
     steps:
       - name: Output for Job 3
-        run: echo "Hello from Job 3"
+        run: echo "STAGING DEPLOYED!"
 
   job-4:
     name: Production
-    if: github.event_name == 'workflow_dispatch'
-    # if: always()       - one of 2 or 3 job must finished
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.run-job-4 == 'true'
+    # if: always()
     needs: job-3
     runs-on: ubuntu-latest
     steps:
       - name: Output for Job 4
-        run: echo "Hello from Job 4"
+        run: echo "PRODUCTION DEPLOYED!"
